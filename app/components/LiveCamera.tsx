@@ -9,8 +9,8 @@ import { useEffect, useRef, useState } from "react";
 import { VideoCamera, VideoCameraSlash } from "@phosphor-icons/react";
 import { CrowdTag } from "@/components/Crowd";
 import { VIEW_CAPACITY } from "@/lib/sim/constants";
+import { COUNTER_DOWN, COUNTER_IS_LOCAL, countImage } from "@/lib/counter";
 
-export const LIVE_URL = "http://localhost:8765";
 
 export interface CountResult { count: number; boxes: number[][]; points?: number[][]; model: string; ms: number }
 
@@ -57,13 +57,11 @@ export function LiveCamera({ blur = false }: { blur?: boolean }) {
         grab.height = v.videoHeight;
         grab.getContext("2d")!.drawImage(v, 0, 0);
         const blob: Blob = await new Promise((r) => grab.toBlob((b) => r(b!), "image/jpeg", 0.85));
-        const res = await fetch(`${LIVE_URL}/count`, { method: "POST", body: blob, headers: { "Content-Type": "image/jpeg" } });
-        if (!res.ok) throw new Error(String(res.status));
-        last = await res.json();
+        last = await countImage(blob);
         setResult(last);
         setError(null);
       } catch {
-        setError("The counter is not running. Stop and run npm run dev again, then wait for \u201cCounter ready\u201d.");
+        setError(COUNTER_DOWN);
       } finally {
         busy = false;
       }
@@ -86,7 +84,8 @@ export function LiveCamera({ blur = false }: { blur?: boolean }) {
   return (
     <div className="card grid gap-3 p-4">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <p className="text-sm text-ink-2">{on ? "Counting twice a second." : "Uses this computer\u2019s camera. Nothing is recorded."}</p>
+        <p className="text-sm text-ink-2">{on ? (result ? "Counting about twice a second." : COUNTER_IS_LOCAL ? "Starting\u2026" : "Connecting to the counter. The first count can take up to a minute.")
+          : COUNTER_IS_LOCAL ? "Uses this computer\u2019s camera. Nothing is recorded." : "Uses your camera. Frames are counted and deleted straight away; nothing is recorded."}</p>
         <button type="button" onClick={() => { setOn(!on); setResult(null); }}
           className="pressable inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-semibold text-paper">
           {on ? <VideoCameraSlash size={17} weight="fill" aria-hidden /> : <VideoCamera size={17} weight="fill" aria-hidden />}

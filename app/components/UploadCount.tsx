@@ -7,7 +7,8 @@
 import { useRef, useState } from "react";
 import { ImageSquare, UploadSimple } from "@phosphor-icons/react";
 import { CrowdTag } from "@/components/Crowd";
-import { LIVE_URL, type CountResult } from "@/components/LiveCamera";
+import { type CountResult } from "@/components/LiveCamera";
+import { COUNTER_DOWN, COUNTER_PRIVACY, COUNTER_WAKING, countImage } from "@/lib/counter";
 import { VIEW_CAPACITY } from "@/lib/sim/constants";
 
 const MAX_SIDE = 1600;
@@ -42,11 +43,9 @@ export function UploadCount() {
       const { blob, w, h } = await toJpeg(file);
       if (img) URL.revokeObjectURL(img.url);
       setImg({ url: URL.createObjectURL(blob), w, h });
-      const res = await fetch(`${LIVE_URL}/count`, { method: "POST", body: blob, headers: { "Content-Type": "image/jpeg" } });
-      if (!res.ok) throw new Error(String(res.status));
-      setResult(await res.json());
+      setResult(await countImage(blob));
     } catch {
-      setError("The counter is not running. Stop and run npm run dev again, then wait for \u201cCounter ready\u201d.");
+      setError(COUNTER_DOWN);
     } finally {
       setBusy(false);
     }
@@ -84,7 +83,7 @@ export function UploadCount() {
             className="pressable inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-semibold text-paper disabled:opacity-60">
             <UploadSimple size={17} weight="bold" aria-hidden />{img ? "Choose another photo" : "Choose a photo"}
           </button>
-          {busy && <span className="text-sm text-ink-3">Counting…</span>}
+          {busy && <span className="text-sm text-ink-3">{COUNTER_WAKING}</span>}
         </div>
       </div>
       {error && <p className="text-sm font-semibold text-serious" role="status">{error}</p>}
@@ -95,7 +94,7 @@ export function UploadCount() {
           <span className="text-xs text-ink-3">Level as if this were half a car ({VIEW_CAPACITY} people when full) · <span className="num">{Math.round(result.ms)}</span> ms</span>
         </p>
       )}
-      <p className="text-xs text-ink-3">Your photo is counted on this computer and is not saved or sent anywhere.</p>
+      <p className="text-xs text-ink-3">{COUNTER_PRIVACY}</p>
     </div>
   );
 }

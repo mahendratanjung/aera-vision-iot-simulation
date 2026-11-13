@@ -78,6 +78,17 @@ matrix, counted vs actual, comparison of all detectors, error by level), each wi
 The earlier, larger version (train simulation with scenarios, charts page, Send to AERA) is kept in
 `app/app/_extras/`, which the app does not show.
 
+## Deployment (free)
+
+- **Website:** Vercel, project root `app/`. Set `NEXT_PUBLIC_COUNTER_URL` to the counter's address.
+- **Counter:** Render free web service from `render.yaml` (folder `counter/`): ONNX Runtime only, no
+  PyTorch, about 200 MB of memory. It downloads the model at build time and checks its SHA-256.
+  `counter/model.json` (threshold, model file, checksum) is written by
+  `cd model && uv run python -m aera_vision.export_counter`. The counter gives the same counts as the
+  evaluated model (checked on test photos). Free Render services sleep after 15 minutes without use;
+  the first count after that takes up to a minute.
+- No database is needed.
+
 ## Reproduce the metrics
 
 Everything is in `model/`. `data/splits.json` freezes the split into 1,000 tune and 3,370 test photos,

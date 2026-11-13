@@ -7,7 +7,7 @@
     "dev": "concurrently -n web,counter -c blue,green \"npm:dev:web\" \"npm:dev:counter\"",
     "predev:web": "node scripts/sync-results.mjs",
     "dev:web": "next dev --port 3100",
-    "dev:counter": "cd ../model && uv run python -m aera_vision.serve",
+    "dev:counter": "cd ../counter && ../model/.venv/bin/python download_model.py && ../model/.venv/bin/python app.py",
     "prebuild": "node scripts/sync-results.mjs",
     "build": "next build",
     "start": "next start --port 3100",

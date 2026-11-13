@@ -1,0 +1,17 @@
+# Render blueprint: the AERA Vision counter (free web service). The website is on Vercel.
+services:
+  - type: web
+    name: aera-vision-counter
+    runtime: python
+    plan: free
+    rootDir: counter
+    buildCommand: pip install -r requirements.txt && python download_model.py
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.12
+      - key: ALLOWED_ORIGINS
+        value: http://localhost:3100
+      - key: ALLOWED_ORIGIN_REGEX
+        value: ^https://aera-vision[a-z0-9-]*\.vercel\.app$

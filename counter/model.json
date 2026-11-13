@@ -1,0 +1,13 @@
+{
+  "label": "YOLOv5m CrowdHuman, heads",
+  "class": "head",
+  "threshold": 0.3534,
+  "imgsz": 640,
+  "nms_iou": 0.6,
+  "max_side": 2048,
+  "weights_url": "https://github.com/yakhyo/yolov5-crowdhuman-onnx/releases/download/v0.0.1/crowdhuman.onnx",
+  "weights_sha256": "4f2b3a96231891de06df6838b4437fe68e9ae2df1ad1e1714cf700be9ea1561e",
+  "source": "https://github.com/yakhyo/yolov5-crowdhuman-onnx",
+  "licence": "No licence file (YOLOv5 code is AGPL-3.0)",
+  "note": "Written by model/aera_vision/export_counter.py from model/results and model/chosen.json. Do not edit by hand."
+}
