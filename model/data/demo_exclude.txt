@@ -1,0 +1,42 @@
+# Photos left out of the app demo (not out of the evaluation). One CrowdHuman id per line, then # reason.
+# Found by looking at every candidate photo on contact sheets, 13 Nov 2026.
+273275,53b5c00092106a3d  # Alamy stock-photo watermark
+283647,77ad000e2e74af0  # Alamy stock-photo watermark
+283554,3e626000897dd74b  # Faint watermark, left out to be safe
+273275,cd081000e9949a22  # Alamy stock-photo watermark
+282555,91384000946b4f90  # Dreamstime watermark
+284193,c0a00084eb2bf6  # iStock watermark
+283992,2b31000326b1e72  # Alamy stock-photo watermark
+273271,23d9d0000f219568  # Dreamstime watermark
+282555,8a7a20000b5794a2  # Alamy stock-photo watermark
+283647,c25200085cda0dc  # Alamy stock-photo watermark
+273275,586dd000a0835b35  # Reuters credit
+282555,bda3f00014618e23  # Dreamstime watermark
+283554,2e40f00024aa4ea8  # Photographer's watermark
+282555,10bd300006ac1a8bb  # Alamy stock-photo watermark
+273278,130327000ef70a0b7  # Faint watermark, left out to be safe
+283554,2947e000ab06fbda  # Alamy stock-photo watermark
+273275,11864a000ebfb6765  # Reuters credit
+283554,220d1000abde3e75  # Dreamstime watermark
+283554,30953000661cd10f  # Alamy stock-photo watermark
+282555,ec6d4000b8753a14  # Alamy stock-photo watermark
+273275,1375b000fffcce93  # Shutterstock watermark
+273278,1224a9000d6db2643  # Dreamstime watermark
+282555,10563300073c7aa09  # Alamy stock-photo watermark
+283992,139b000816996d4  # Shutterstock watermark
+282555,d466c000b15a2d73  # Faint watermark, left out to be safe
+283647,248f000b4955589  # Alamy stock-photo watermark
+273275,7568a000b2421f17  # Faint watermark, left out to be safe
+282555,9b7a10002b291eb0  # Dreamstime watermark
+273278,12f3cc0001e6ee241  # Alamy stock-photo watermark
+283991,220850008b7fd362  # Getty Images watermark
+283647,38a00009b062b9c  # Alamy stock-photo watermark
+273278,108dfb000be2e44b5  # Dreamstime watermark
+283554,2bb41000f26711ce  # Alamy stock-photo watermark
+273278,4fd010003c543ea2  # Alamy stock-photo watermark (found on the final check)
+282555,64cbb0003ace94b4  # Faint 123RF watermark (found on the final check)
+283554,3de58000ea2fa8dd  # Photographer's watermark (found on the full-size check)
+282555,665af0008dadf86b  # Faint 123RF watermark (found on the full-size check)
+282555,ab35800027e0cf7f  # Copyright line in the photo (found on the full-size check)
+282555,a68f1000444aba36  # Photographer's copyright mark (found on the full-size check)
+273275,136ed8000affd02f4  # Political event with a candidate's name, left out of a pitch demo (found on the full-size check)

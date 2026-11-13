@@ -1,0 +1,115 @@
+@import "tailwindcss";
+@import "../styles/theme.css";
+
+/* Tailwind names for AERA's tokens (same mapping as AERA's globals.css). Colours live in theme.css only. */
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-2: var(--accent-2);
+  --color-accent-2-soft: var(--accent-2-soft);
+  --color-highlight: var(--highlight);
+  --color-highlight-soft: var(--highlight-soft);
+  --color-line: var(--line-kj);
+  --color-ops: var(--ops);
+  --color-ops-2: var(--ops-2);
+  --color-ops-ink: var(--ops-ink);
+  --color-ops-ink-2: var(--ops-ink-2);
+  --color-ops-soft: var(--ops-soft);
+  --color-crowd-empty: var(--crowd-empty);
+  --color-critical: var(--status-critical);
+  --color-serious: var(--status-serious);
+  --color-warning: var(--status-warning);
+  --color-good: var(--status-good);
+  --font-sans: var(--type-body);
+  --radius-sign: var(--radius-sm);
+  --radius-card: var(--radius);
+  --shadow-card: var(--shadow-md);
+  --shadow-soft: var(--shadow-sm);
+  --shadow-float: var(--shadow-lg);
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--type-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--paper);
+  overflow-x: hidden;
+}
+
+button,
+a {
+  touch-action: manipulation;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Counts and times never shift as digits change */
+.num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink-3);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-raised {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  border: 1px solid color-mix(in srgb, var(--rule) 70%, transparent);
+}
+
+.pressable {
+  transition: transform var(--motion-fast) var(--ease), background-color var(--motion-fast) var(--ease), box-shadow var(--motion-fast) var(--ease);
+}
+.pressable:active {
+  transform: scale(0.98);
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,5 @@
+{
+  "key": "yolov5m_ch_head",
+  "decided": "2026-11-13",
+  "reason": "One model only (user's decision, to keep the system simple). Among all detectors tested it has the highest precision, recall, F1 and AP on the test split, and the lowest counting error. The evaluation's own rule had picked a hybrid of this model and ZIP Nano; the hybrid is slightly better overall but needs two models."
+}

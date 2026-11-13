@@ -1,0 +1,24 @@
+{
+  "note": "Published figures, NOT measured by this project (no edge hardware available). They are for similar YOLO models, not the exact models evaluated here, and come from single sources. Treat them as rough orders of magnitude.",
+  "devices": [
+    {
+      "device": "Raspberry Pi 5 + AI HAT+ 2 (Hailo-10H, 40 TOPS)",
+      "figure": "About 30 frames per second running a YOLO vision model on a Camera Module 3",
+      "source": "Jeff Geerling, January 2026",
+      "url": "https://jeffgeerling.com/blog/2026/raspberry-pi-ai-hat-2"
+    },
+    {
+      "device": "Raspberry Pi 5 + AI HAT+ 2 (Hailo-10H)",
+      "figure": "Smooth 30+ frames per second with larger YOLO models (review)",
+      "source": "CNX Software review, 20 January 2026",
+      "url": "https://www.cnx-software.com/2026/01/20/raspberry-pi-ai-hat-2-review-a-40-tops-ai-accelerator-tested-with-computer-vision-llm-and-vlm-workloads/"
+    },
+    {
+      "device": "Jetson Orin Nano Super",
+      "figure": "About 32 to 40 frames per second for YOLOv8n at 640 x 640 with TensorRT FP16",
+      "source": "SpecPicks, citing NVIDIA Jetson AI Lab benchmarks",
+      "url": "https://specpicks.com/reviews/jetson-orin-nano-super-vs-hailo-8-ai-hat-2026"
+    }
+  ],
+  "needed": "AERA's camera counter works at 2 frames per second, so every figure above leaves a wide margin for detectors of this size. Density counters (ZIP) and RF-DETR have no published Hailo figures; whether they compile for Hailo is unconfirmed."
+}
